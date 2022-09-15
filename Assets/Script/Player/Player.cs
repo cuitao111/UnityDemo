@@ -254,6 +254,7 @@ public class Player : MonoBehaviour
     {
         if (other != null)
         {
+            Debug.Log(other.gameObject);
             //如果获取到了敌人
             if (other.CompareTag("Enemy"))
             {

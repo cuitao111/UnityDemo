@@ -59,7 +59,7 @@ public class Bullet : MonoBehaviour
                 
             }
         }*/
-        if (other != null)
+        /*if (other != null)
         {
             if (other.CompareTag("Player"))
             {
@@ -67,7 +67,7 @@ public class Bullet : MonoBehaviour
                 //还需要传递一个方向给MyFSM
                 Destroy(gameObject);
             }
-        }
+        }*/
         
     }
 }

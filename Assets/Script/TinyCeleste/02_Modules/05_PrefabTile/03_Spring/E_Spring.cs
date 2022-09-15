@@ -22,11 +22,10 @@ namespace TinyCeleste._02_Modules._05_PrefabTile._03_Spring
         // Update is called once per frame
         void Update()
         {
-            //检测是否与玩家进行碰撞，结果存放在 colliderChecker.checker.colliderTag
+            //检测是否与玩家进行碰撞，结果存放在 colliderChecker.checker.targetList
             colliderChecker.ColliderCheckerSystem();
-            //
+            //根据targetList中获取到的碰撞体调用PalyerCharacter执行对应的逻辑
             ejectPlayer.EjectPlayerSystem();
-            //
             //Debug.Log("播放弹簧弹起动画。");
 
         }

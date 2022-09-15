@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
 namespace Gamekit2D
 {
@@ -318,6 +319,69 @@ namespace Gamekit2D
                 m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, Yvelocity);
                 return;
             }
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other != null)
+            {
+                Debug.Log(other.gameObject);
+                //如果获取到了敌人
+                if (other.CompareTag("Enemy"))
+                {
+
+                    CameraShake.Instance.DoShake(0.06f, 0.35f);
+                    AttackScene.Instance.HitPause(2);
+
+                    //CameraShake.Instance.DoShake(0.06f, 0.35f);
+
+                    //传递玩家的朝向，调用敌人被击中的逻辑
+                    if (transform.localScale.x > 0)
+                    {
+                        //玩家朝右侧击打
+                        other.GetComponent<enemy.MyFSM>().GetHit(Vector2.right);
+                    }
+                    else if (transform.localScale.x < 0)
+                    {
+                        other.GetComponent<enemy.MyFSM>().GetHit(Vector2.left);
+                    }
+
+                }
+                //检测到bullet逻辑
+                if (other.CompareTag("Bullet") &&
+                    transform.position.x > other.transform.position.x)
+                {
+                    //抖动摄像机
+                    //CameraShake.Instance.DoShake(0.06f, 0.35f);
+                    CameraShake.Instance.DoShake(0.06f, 0.35f);
+                    AttackScene.Instance.HitPause(2);
+                    //bullet转向
+                    other.GetComponent<Bullet>().Flip();
+                    //添加时停效果
+                    SlowTime(0.15f);
+                }
+            }
+        }
+
+        private void SlowTime(float timer)
+        {
+            StopAllCoroutines();
+            StartCoroutine(SlowTimeCo(timer));
+        }
+
+        public IEnumerator SlowTimeCo(float timer)
+        {
+            Time.timeScale = 0.25f;//修改时间
+            while (timer >= 0)
+            {
+                timer -= Time.deltaTime;
+                if (timer <= 0)
+                {
+                    break;
+                }
+                yield return null;
+            }
+            Time.timeScale = 1;
         }
 
         //在窗口中绘制攻击范围圆心，与左右触墙判定
