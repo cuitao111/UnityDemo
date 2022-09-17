@@ -1,8 +1,9 @@
 # Unity Demo
 
 ## 视频演示
+```HTML
 <video src="Document/video/MyVideo_1.mp4" controls="controls" width="500" height="300"></video>
-
+```
 
 ## 1.多层状态机(HFSM)实现人物状态切换
 ### 参考：[Unity官方2D项目GameKit2D](https://learn.unity.com/project/2d-you-xi-tao-jian)
@@ -105,8 +106,9 @@ public class C_EjectPlayer : EntityComponent
 
 ### 4.1 敌人AI/子弹弹反
 ### 参考: [弹反](https://www.bilibili.com/video/BV1ES4y177Tx?spm_id_from=333.1007.top_right_bar_window_custom_collection.content.click&vd_source=1f4a7a119cba75354caa87a52ab8737c) 、 [AI](https://github.com/RedFF0000/Finite-state-machine)
+```HTML
 <video src="Document/video/AI.mp4" controls="controls" width="500" height="300"></video>
 <video src="Document/video/atk.mp4" controls="controls" width="500" height="300"></video>
-
+```
 ### 4.2 跳跃修正,蹭墙跳
 ### 参考: [跳跃修正](https://www.bilibili.com/video/BV17Z4y1v7ox?spm_id_from=333.999.0.0)
