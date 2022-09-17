@@ -1,9 +1,10 @@
 # Unity Demo
 
 ## 视频演示
-```HTML
 <video src="Document/video/MyVideo_1.mp4" controls="controls" width="500" height="300"></video>
-```
+<video width="320" height="240" controls>
+    <source src="Document/video/MyVideo_1.mp4" type="video/mp4">
+</video>
 
 ## 1.多层状态机(HFSM)实现人物状态切换
 ### 参考：[Unity官方2D项目GameKit2D](https://learn.unity.com/project/2d-you-xi-tao-jian)
