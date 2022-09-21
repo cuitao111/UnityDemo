@@ -12,12 +12,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 525226d3eb315b345b7955138583f0a2
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 61d3a2bf2f85ddc4baaaea256ced8b81
-  - enabled: 1
     path: Assets/Scenes/ClimbScene.unity
     guid: a5db2cde79c1b6e45a46cb4493565cec
   - enabled: 1
-    path: Assets/Scenes/CuitaoScene.unity
+    path: Assets/Scenes/Zone1.unity
+    guid: 47c65d91651bf7e4c958d16a412b3a44
+  - enabled: 1
+    path: Assets/Scenes/Zone2.unity
+    guid: 61d3a2bf2f85ddc4baaaea256ced8b81
+  - enabled: 1
+    path: Assets/Scenes/Zone3.unity
     guid: 5f27e09728d876242b90a400859b4629
   m_configObjects: {}

@@ -19,8 +19,8 @@ TagManager:
   - bullet
   - effect
   - confiner
-  - 
-  - 
+  - Camera
+  - platform
   - 
   - 
   - 
@@ -54,4 +54,7 @@ TagManager:
     locked: 0
   - name: character
     uniqueID: 2600570135
+    locked: 0
+  - name: platform
+    uniqueID: 156134659
     locked: 0

@@ -1,7 +1,6 @@
 # Unity Demo
 
-## 视频演示
-<video src="Document/video/MyVideo_1.mp4" controls="controls" width="500" height="300"></video>
+## [视频演示](Document/video/MyVideo_1.mp4)
 
 
 ## 1.多层状态机(HFSM)实现人物状态切换
@@ -105,8 +104,19 @@ public class C_EjectPlayer : EntityComponent
 
 ### 4.1 敌人AI/子弹弹反
 ### 参考: [弹反](https://www.bilibili.com/video/BV1ES4y177Tx?spm_id_from=333.1007.top_right_bar_window_custom_collection.content.click&vd_source=1f4a7a119cba75354caa87a52ab8737c) 、 [AI](https://github.com/RedFF0000/Finite-state-machine)
-<video src="Document/video/AI.mp4" controls="controls" width="500" height="300"></video>
-<video src="Document/video/atk.mp4" controls="controls" width="500" height="300"></video>
+
+https://user-images.githubusercontent.com/48914057/190846442-53be34b5-26a6-45a5-97f8-0f43e2a40ea1.mp4
+
+https://user-images.githubusercontent.com/48914057/190846484-6ee0ecbb-2d6c-4f34-bfe5-d3579b39977e.mp4
+
 
 ### 4.2 跳跃修正,蹭墙跳
 ### 参考: [跳跃修正](https://www.bilibili.com/video/BV17Z4y1v7ox?spm_id_from=333.999.0.0)
+
+
+### 4.3 Key-Door 场景切换
+主要涉及TimeLine以及SceneManager的使用
+
+
+## TODO：
+UI + 开始菜单 + 音频 + BOSS战
