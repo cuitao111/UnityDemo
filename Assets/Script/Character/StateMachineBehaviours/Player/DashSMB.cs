@@ -7,13 +7,14 @@ namespace Gamekit2D
         //类似attack
         public override void OnSLStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            m_MonoBehaviour.InitDashTimer();
+            m_MonoBehaviour.InitDashTimerandGhost();
         }
 
         public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             m_MonoBehaviour.UpdateDashTimer();
             //m_MonoBehaviour.CheckForOnWallState();
+            m_MonoBehaviour.GenGhost();
             //实现粒子效果
             //检查是否出现了蹭墙跳
             if (m_MonoBehaviour.CheckForJumpInput())

@@ -17,10 +17,10 @@ namespace Gamekit2D
         static protected PlayerCharacter s_PlayerInstance;  //静态类
         static public PlayerCharacter PlayerInstance { get { return s_PlayerInstance; } } //静态属性
 
-        /*        public InventoryController inventoryController   //库存控制器属性
-                {
-                    get { return m_InventoryController; }
-                }*/
+        public InventoryController inventoryController   //库存控制器属性
+        {
+            get { return m_InventoryController; }
+        }
 
         public SpriteRenderer spriteRenderer;   //精灵渲染器
         public Damageable damageable;           //
@@ -69,6 +69,10 @@ namespace Gamekit2D
         public int curDashCount;                    //当前冲刺次数
         public float dashStrength = 1;          //冲刺相机晃动幅度
         public float dashShakeSpeed = 1;          //冲刺相机晃动速度
+        public GameObject[] ghostObjects;            //冲刺残影数组
+        public int ghostNum = 3;                    //残影数量
+        float ghostTime;
+        int ghostIndex;
 
         public bool isDead;                         //是否死亡
         
@@ -118,7 +122,7 @@ namespace Gamekit2D
         protected float m_CamFollowHorizontalSpeed;
         protected float m_CamFollowVerticalSpeed;
         protected float m_VerticalCameraOffsetTimer;
-        //protected InventoryController m_InventoryController;
+        protected InventoryController m_InventoryController;
 
         //protected Checkpoint m_LastCheckpoint = null;
         protected Vector2 m_StartingPosition = Vector2.zero;
@@ -545,6 +549,7 @@ namespace Gamekit2D
         public void ResetGravity()
         {
             gravity = 50f;
+
         }
 
         //墙上的竖直速度更新
@@ -626,7 +631,7 @@ namespace Gamekit2D
             m_MoveVector.y = dir.normalized.y * dashSpeed;
 
             
-            StartCoroutine(DashWait());
+            //StartCoroutine(DashWait());
         }
 
         //负责生成Ghost
@@ -663,10 +668,10 @@ namespace Gamekit2D
             m_CharacterController2D.Rigidbody2D.drag = x;
         }
 
-        public void InitDashTimer()
+        public void InitDashTimerandGhost()
         {
             dashTimer = dashInterval;
-            
+            ghostIndex = 0;
         }
         //更新冲刺timer
         public void UpdateDashTimer()
@@ -743,12 +748,33 @@ namespace Gamekit2D
         public void ResetRebirthPos(Transform transform)
         {
             rebirthPosition.position = transform.position;
+            FindObjectOfType<Parallax>().ResetPos();
         }
 
         //蹭墙跳，设定速度为蹬墙跳速度
         public void JumpInDash()
         {
 
+        }
+
+        //生成残影
+        public void GenGhost()
+        {
+            if(Time.time > ghostTime)
+            {
+                ghostIndex = ghostIndex % 3;
+                //生成残影
+                Instantiate(ghostObjects[ghostIndex], transform.position, Quaternion.identity);
+                ghostIndex++;
+                //设置下一个残影生成时间
+                ghostTime = Time.time + dashInterval / ghostNum;
+            }
+        }
+
+        //
+        public void KeyInventoryEvent()
+        {
+            if (KeyUI.Instance != null) KeyUI.Instance.ChangeKeyUI(m_InventoryController);
         }
 
         /*
@@ -1214,9 +1240,6 @@ namespace Gamekit2D
         }
 
         //This is called by the inventory controller on key grab, so it can update the Key UI.
-        public void KeyInventoryEvent()
-        {
-            if (KeyUI.Instance != null) KeyUI.Instance.ChangeKeyUI(m_InventoryController);
-        }*/
+        */
     }
 }

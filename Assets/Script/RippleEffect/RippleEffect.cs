@@ -18,18 +18,18 @@ public class RippleEffect : MonoBehaviour
     );
 
     [Range(0.01f, 1.0f)]
-    public float refractionStrength = 0.5f;
+    public float refractionStrength = 0.1f;   //0.5
 
-    public Color reflectionColor = Color.gray;
+    public Color reflectionColor = Color.gray;  //gray
 
     [Range(0.01f, 1.0f)]
-    public float reflectionStrength = 0.7f;
+    public float reflectionStrength = 0.5f;     //0.7
 
     [Range(1.0f, 5.0f)]
-    public float waveSpeed = 1.25f;
+    public float waveSpeed = 1.25f;             //1.25
 
     [Range(0.0f, 2.0f)]
-    public float dropInterval = 0.5f;
+    public float dropInterval = 0.5f;           //0.5
 
     [SerializeField]
     Shader shader;
